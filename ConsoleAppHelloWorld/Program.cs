@@ -11,10 +11,13 @@ namespace ConsoleAppHelloWorld
     {
         static void Main(string[] args)
         {
-            WriteLine("Hello World!");
+            WriteLine($"Hello World!");
             Test();
         }
 
+        /// <summary>
+        /// test var 
+        /// </summary>
         static void Test()
         {
             var name = "Bugs Bunny";
