@@ -1,7 +1,0 @@
-C:\MyRepos\CSharpReview\ConsoleAppHelloWorld\bin\Debug\ConsoleAppHelloWorld.exe.config
-C:\MyRepos\CSharpReview\ConsoleAppHelloWorld\bin\Debug\ConsoleAppHelloWorld.exe
-C:\MyRepos\CSharpReview\ConsoleAppHelloWorld\bin\Debug\ConsoleAppHelloWorld.pdb
-C:\MyRepos\CSharpReview\ConsoleAppHelloWorld\obj\Debug\ConsoleAppHelloWorld.csprojAssemblyReference.cache
-C:\MyRepos\CSharpReview\ConsoleAppHelloWorld\obj\Debug\ConsoleAppHelloWorld.csproj.CoreCompileInputs.cache
-C:\MyRepos\CSharpReview\ConsoleAppHelloWorld\obj\Debug\ConsoleAppHelloWorld.exe
-C:\MyRepos\CSharpReview\ConsoleAppHelloWorld\obj\Debug\ConsoleAppHelloWorld.pdb
