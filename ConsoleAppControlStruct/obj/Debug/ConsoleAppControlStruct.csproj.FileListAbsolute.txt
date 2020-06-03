@@ -1,0 +1,7 @@
+C:\MyRepos\CSharpReview\ConsoleAppControlStruct\bin\Debug\ConsoleAppControlStruct.exe.config
+C:\MyRepos\CSharpReview\ConsoleAppControlStruct\bin\Debug\ConsoleAppControlStruct.exe
+C:\MyRepos\CSharpReview\ConsoleAppControlStruct\bin\Debug\ConsoleAppControlStruct.pdb
+C:\MyRepos\CSharpReview\ConsoleAppControlStruct\obj\Debug\ConsoleAppControlStruct.csprojAssemblyReference.cache
+C:\MyRepos\CSharpReview\ConsoleAppControlStruct\obj\Debug\ConsoleAppControlStruct.csproj.CoreCompileInputs.cache
+C:\MyRepos\CSharpReview\ConsoleAppControlStruct\obj\Debug\ConsoleAppControlStruct.exe
+C:\MyRepos\CSharpReview\ConsoleAppControlStruct\obj\Debug\ConsoleAppControlStruct.pdb
