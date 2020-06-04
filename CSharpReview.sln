@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppLoopStatement", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppJumpStatement", "ConsoleAppJumpStatement\ConsoleAppJumpStatement.csproj", "{FA27934A-0904-433B-B354-32E7576F8728}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppEnum", "ConsoleAppEnum\ConsoleAppEnum.csproj", "{CDDC2F40-B19D-41E6-9551-C824D4F9BFBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FA27934A-0904-433B-B354-32E7576F8728}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA27934A-0904-433B-B354-32E7576F8728}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA27934A-0904-433B-B354-32E7576F8728}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDDC2F40-B19D-41E6-9551-C824D4F9BFBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDDC2F40-B19D-41E6-9551-C824D4F9BFBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDDC2F40-B19D-41E6-9551-C824D4F9BFBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDDC2F40-B19D-41E6-9551-C824D4F9BFBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{1E9FD6A3-FAE4-44E6-8FC0-D886358B9CD3} = {2B3CB8F9-A73D-415F-8133-A0C6A72D7656}
 		{3345A40C-FCC2-4B14-8CBD-B9ED0DF330AB} = {DE7474D4-A3E1-432C-924B-24AB32AE1B4F}
 		{FA27934A-0904-433B-B354-32E7576F8728} = {DE7474D4-A3E1-432C-924B-24AB32AE1B4F}
+		{CDDC2F40-B19D-41E6-9551-C824D4F9BFBD} = {DE7474D4-A3E1-432C-924B-24AB32AE1B4F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3E7F3194-B0FA-4957-9F36-09E4B4EFEE05}
