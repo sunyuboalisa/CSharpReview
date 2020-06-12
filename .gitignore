@@ -1,5 +1,4 @@
 /.vs
-/ConsoleAppHelloWorld/bin
-/ConsoleAppHelloWorld/obj
 obj
 bin
+*.csproj.user
