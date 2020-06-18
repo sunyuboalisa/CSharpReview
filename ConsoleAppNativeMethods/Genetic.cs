@@ -154,4 +154,98 @@ namespace ConsoleAppNativeMethods
         }
     }
     #endregion
+
+    #region 演示协变和逆变
+    
+    public class Shape
+    {
+        public double Width { get; set; }
+        public double Height { get; set; }
+
+        public override string ToString() => $"Width: {Width}, Height: {Height}";
+    }
+
+    public class Rectangle : Shape
+    {
+
+    }
+
+    public class Variance
+    {
+        private void Display(Shape o)
+        {
+            Console.WriteLine(o);
+        }
+        private Rectangle GetRectangle()
+        {
+            return new Rectangle { Width = 20, Height = 10 };
+        }
+        private Shape GetShape()
+        {
+            return new Shape { Width = 20, Height = 20 };
+        }
+        public void Test()
+        {
+            var r = new Rectangle { Width = 10, Height = 20 };
+            Display(r);//协变  子类变父类
+            Shape shape = GetRectangle();//协变 子类变父类
+            //Rectangle rectangle = GetShape(); //编译器报错 因为shape不一定总是rectangle 就是抗变
+            Rectangle rectangle = (Rectangle)GetShape();
+
+            IIndex<Rectangle> rectangles = RectangleCollection.GetRectangles();
+            IIndex<Shape> shapes = rectangles;// 协变 接口  子类变父类
+
+            IDisplay<Shape> shapeDisplay = new ShapeDisplay();
+            IDisplay<Rectangle> recDisplay = shapeDisplay;// 逆变 父类变子类  自动转换
+
+        }
+
+        public interface IIndex<out T>// 用out关键字标注 意味着此接口协变 即子类自动转换父类。
+        {
+            T this[int index] { get; }
+            int Count { get; }
+        }
+
+        public class RectangleCollection : IIndex<Rectangle>
+        {
+            private Rectangle[] data = new Rectangle[3]
+            {
+                new Rectangle{Width=20,Height=10},
+                new Rectangle{Width=20,Height=10},
+                new Rectangle{Width=20,Height=10},
+            };
+
+            private static RectangleCollection _coll;
+            public static RectangleCollection GetRectangles() => _coll ?? (_coll = new RectangleCollection());
+
+            public Rectangle this[int index]
+            {
+                get
+                {
+                    if (index < 0 || index > data.Length)
+                    {
+                        throw new ArgumentOutOfRangeException("index");
+                    }
+                    return data[index];
+                }
+            }
+
+            public int Count => data.Length;
+        }
+
+        public interface IDisplay<in T>
+        {
+            void Show(T item);
+        }
+
+        public class ShapeDisplay : IDisplay<Shape>
+        {
+            public void Show(Shape item)
+            {
+                Console.WriteLine($"{item.GetType().Name} Width: {item.Width} ,Height: {item.Height}");
+            }
+        }
+    }
+
+    #endregion
 }
