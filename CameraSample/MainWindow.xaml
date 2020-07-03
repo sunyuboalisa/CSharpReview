@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CameraSample"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
     <Grid>
         <StackPanel>
             <Image x:Name="preview"/>
             <Button x:Name="btnCapture" Content="capture preview" Click="btnCapture_Click"/>
+            <Button x:Name="btndCapture" Content="capture preview" Click="btnCddapture_Click"/>
         </StackPanel>
         
     </Grid>

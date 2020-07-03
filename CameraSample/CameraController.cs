@@ -26,33 +26,47 @@ namespace CameraSample
 
         public async Task StartPreviewAsync()
         {
+            if (IsPreviewing)
+            {
+                return;
+            }
             try
             {
                 mediaCapture = new MediaCapture();
-                var s = mediaCapture.CameraStreamState;
-                Debug.WriteLine(s);
-                await mediaCapture.InitializeAsync();
+                await mediaCapture.InitializeAsync();// there will throw an exception if there no camera device.
+                mediaCapture.Failed += MediaCapture_Failed;
 
                 displayRequest.RequestActive();
                 DisplayInformation.AutoRotationPreferences = DisplayOrientations.Landscape;
             }
             catch (Exception e)// it will throw exception if there no camera device. 
             {
-                displayRequest.RequestRelease();
+                await CleanupCameraAsync();
+                Debug.WriteLine(e.Message+"++++45");
+                return;
             }
-
             try
             {
                 capturePreview = new CapturePreview(mediaCapture);
-                mediaCapture.InitializeAsync();
-                //await capturePreview.StartAsync();
+
+                //if (mediaCapture.VideoDeviceController.)
+                //{
+                //    mediaCapture.CaptureDeviceExclusiveControlStatusChanged += MediaCapture_CaptureDeviceExclusiveControlStatusChanged;
+                //}
+                await capturePreview.StartAsync();// it will raise MediaCapture Failed event when camera is used by other application.
+
                 _isPreviewing = true;
-                mediaCapture.CaptureDeviceExclusiveControlStatusChanged += MediaCapture_CaptureDeviceExclusiveControlStatusChanged;
             }
             catch (Exception e)// it will throw exception if camera device is used by other application.
             {
-               
+                Debug.WriteLine(e.Message + "+++62");
             }
+        }
+
+        private void MediaCapture_Failed(MediaCapture sender, MediaCaptureFailedEventArgs errorEventArgs)
+        {
+            _isPreviewing = false;
+            mediaCapture.CaptureDeviceExclusiveControlStatusChanged += MediaCapture_CaptureDeviceExclusiveControlStatusChanged;
         }
 
         private void MediaCapture_CaptureDeviceExclusiveControlStatusChanged(MediaCapture sender, MediaCaptureDeviceExclusiveControlStatusChangedEventArgs args)
@@ -71,10 +85,6 @@ namespace CameraSample
         public CapturePreview GetCapturePreview()
         {
             return capturePreview;
-        }
-        public CameraStreamState GetCameraStreamState()
-        {
-            return mediaCapture.CameraStreamState;
         }
 
         public async Task<VideoFrame> GetVideoFrameAsync()
@@ -100,6 +110,7 @@ namespace CameraSample
 
                     mediaCapture.Dispose();
                     mediaCapture = null;
+                    _isPreviewing = false;
                 });
             }
         }
